@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Bleater{% endblock title %}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        background: #777;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+          {% block sidebar %}
+          {% endblock sidebar %}
+        </div>
+        <div class="col-md-7">
+          {% block contents %}
+          {% endblock contents %}
+        </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block contents %}
+  <ul class="list-group">
+    {% for bleat in bleats %}
+      {% include "bleat.html" %}
+    {% endfor %}
+  </ul>
+{% endblock contents %}
+
+{% block sidebar %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Prijavljene ovce</h3>
+    </div>
+    <ul class="list-group">
+      {% for sheep in all_sheep %}
+        {% include 'sheep.html' %}
+      {% empty %}
+        <li class="list-group-item">
+          Zaenkrat ni prijavljena nobena ovca.
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock sidebar %}

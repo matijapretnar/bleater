@@ -1,0 +1,19 @@
+<li class="list-group-item">
+  <a href="{% url 'timeline' sheep.shortname %}">{{ sheep.name }}</a>
+  {% if current_sheep %}
+    <form style="display: inline" role="form" method="post" action="{% url 'toggle_following' %}">
+      {% csrf_token %}
+      <input type="hidden" name="who_id" value="{{ current_sheep.id }}" />
+      <input type="hidden" name="whom_id" value="{{ sheep.id }}" />
+      {% if following %}
+        <button type="submit" class="btn btn-danger btn-xs pull-right">
+          <span class="glyphicon glyphicon-thumbs-down"></span>
+        </button>
+      {% else %}
+        <button type="submit" class="btn btn-success btn-xs pull-right">
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+        </button>
+      {% endif %}
+    </form>
+  {% endif %}
+</li>

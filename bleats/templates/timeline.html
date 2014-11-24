@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Bleater &mdash; {{ current_sheep.name }}
+{% endblock %}
+
+
+{% block contents %}
+  <ul class="list-group">
+    <li class="list-group-item">
+      <form role='form' method='post' action='{% url 'create_bleat' %}'>
+        {% csrf_token %}
+        <input type='hidden' name='author_id' value='{{ current_sheep.id }}' />
+        <div class="form-group">
+          <input type="text" class="form-control" name='message' placeholder="Beeeee, beeeee, beeee!" maxlength=140>
+        </div>
+        <button type='submit' class='btn btn-primary'>Zablejaj!</button>
+      </form>
+    </li>
+    {% for bleat in current_sheep.timeline_bleats %}
+      {% include 'bleat.html' %}
+    {% endfor %}
+  </ul>
+{% endblock contents %}
+
+
+{% block sidebar %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>
+        {{ current_sheep.name }}
+        <small>
+          @{{ current_sheep.shortname }}
+        </small>
+      </h3>
+    </div>
+    <table class="table" style="text-align: center">
+      <tr>
+        <td>
+          sporočila
+          <h4>{{ current_sheep.bleats.count }}</h4>
+        </td>
+        <td>
+          sledilcev
+          <h4>{{ current_sheep.followers.count }}</h4>
+        </td>
+        <td>
+          sledenih
+          <h4>{{ current_sheep.following.count }}</h4>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Sledene ovce</h3>
+    </div>
+    <ul class="list-group">
+      {% for sheep in current_sheep.following.all %}
+        {% include 'sheep.html' with following=True %}
+      {% empty %}
+        <li class="list-group-item">
+          Nikomur še ne sledite.
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Priporočila</h3>
+    </div>
+    <ul class="list-group">
+      {% for sheep in current_sheep.recommendations %}
+        {% include 'sheep.html' with following=False %}
+      {% empty %}
+        <li class="list-group-item">
+          Sledite že vsem, ki se jim da.
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+{% endblock sidebar %}

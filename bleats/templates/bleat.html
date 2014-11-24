@@ -1,0 +1,13 @@
+<li class="list-group-item">
+  <h4 class="list-group-item-heading">
+    <a href="{% url 'timeline' bleat.author.shortname %}">{{ bleat.author.name }}</a>
+    <small>
+      @{{ bleat.author.shortname }}
+      ·
+      {{ bleat.pretty_time }}
+    </small>
+  </h4>
+  <p class="list-group-item-text">
+    {{ bleat.message }}
+  </p>
+</li>
