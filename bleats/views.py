@@ -12,9 +12,8 @@ def index(request):
 
 
 def timeline(request, shortname):
-    current_sheep = get_object_or_404(Sheep, shortname=shortname)
     context = {
-        'current_sheep': current_sheep
+        'current_sheep': get_object_or_404(Sheep, shortname=shortname)
     }
     return render(request, 'timeline.html', context)
 
