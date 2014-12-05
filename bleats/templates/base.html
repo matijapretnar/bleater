@@ -1,9 +1,14 @@
 <!DOCTYPE html>
+<!-- Vse naše strani bodo imele podobno strukturo, ki jo opišemo v spodnji
+osnovni predlogi. -->
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Bleater</title>
+    <!-- Za osnovo vzamemo stil Bootstrap (http://getbootstrap.com), ki lično
+    prikaže standardne HTML elemente. -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Stil si malce prilagodimo. -->
     <style>
       body {
         background: #777;
@@ -12,13 +17,21 @@
     </style>
   </head>
   <body>
+    <!-- Bootstrapovih komponent tu ne bomo poskušali razumeti, temveč jih bomo
+    le prepisali. Predstavljamo si lahko, da nam je grafični oblikovalec že dal
+    HTML, mi pa vanj na ustrezna mesta dodamo Django značke. -->
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-md-offset-1">
+          <!-- Zgornji HTML bo skupen vsem stranem, razlikovale se bodo le po
+          vsebini glavnega in stranskega bloka. Na tem mestu označimo, kje bo
+          stranski blok, zato da bomo lahko v predlogah, ki uporabljajo osnovno
+          predlogo le povedali, kaj naj bo v njem. -->
           {% block sidebar %}
           {% endblock sidebar %}
         </div>
         <div class="col-md-7">
+          <!-- Podobno si označimo blok za glavno vsebino. -->
           {% block contents %}
           {% endblock contents %}
         </div>

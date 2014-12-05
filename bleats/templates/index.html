@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+<!-- Predloga razširja osnovno predlogo, zato napišemo le, kaj bo v posameznih
+blokih. -->
 
 {% block contents %}
   <ul class="list-group">
+    <!-- V predlogi izpišemo vsako blejanje iz podanega seznama blejanj. Ker
+    se blejanje v enaki obliki pojavlja na začetni strani in na strani posamezne
+    ovce, jo opišemo v predlogi bleat.html in tukaj le vključimo. -->
     {% for bleat in bleats %}
       {% include "bleat.html" %}
     {% endfor %}

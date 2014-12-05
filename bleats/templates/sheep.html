@@ -1,5 +1,8 @@
 <li class="list-group-item">
   <a href="{% url 'timeline' sheep.shortname %}">{{ sheep.name }}</a>
+
+  <!-- Če smo na strani posamezne ovce, poleg imena vsake ovce dodamo še obrazec
+  za začetek ali prenehanje sledenja. -->
   {% if current_sheep %}
     <form style="display: inline" role="form" method="post" action="{% url 'toggle_following' %}">
       {% csrf_token %}

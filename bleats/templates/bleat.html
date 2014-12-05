@@ -1,5 +1,7 @@
 <li class="list-group-item">
   <h4 class="list-group-item-heading">
+    <!-- Povezave na stran posamezne ovce ne napišemo direktno, temveč uporabimo
+    značko url, ki naslov ustvari glede na pravila v datoteki urls.py. -->
     <a href="{% url 'timeline' bleat.author.shortname %}">
       {{ bleat.author.name }}
     </a>

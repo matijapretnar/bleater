@@ -5,6 +5,8 @@
   <ul class="list-group">
     <li class="list-group-item">
       <form role='form' method='post' action='{% url 'create_bleat' %}'>
+        <!-- Da ne pride do CSRF zlorabe, morajo vsi obrazci v Djangu vsebovati
+        poseben ključ, ki ga vključimo s spodnjo značko. -->
         {% csrf_token %}
         <input type='hidden' name='author_id' value='{{ current_sheep.id }}' />
         <div class="form-group">
