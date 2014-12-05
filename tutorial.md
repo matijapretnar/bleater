@@ -145,7 +145,7 @@ strani podobno strukturo, bomo v mapi `templates/` najprej naredili predlogo
 `base.html`, ki vsebuje osnovni HTML ter označeni mesti, v kateri bomo kasneje
 postavili glavno in stransko vsebino.
 
-Začetno stran opišemo s predlogo `index.html`, stran ovce pa s predlogo
+Začetno stran opišemo s predlogo `homepage.html`, stran ovce pa s predlogo
 `timeline.html`. Ker se na obeh straneh blejanja in naštete ovce prikazujejo na
 enak način, bomo naredili še pomožni predlogi `bleat.html` in `sheep.html`, ki
 ju bomo vključili v predlogi strani.

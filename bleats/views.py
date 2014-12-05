@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from bleats.models import Bleat, Sheep
 
 
-def index(request):
+def homepage(request):
     '''Začetna stran, ki prikazuje seznam vseh ovc ter njihovih blejanj.'''
     # Za izris enostavnih strani uporabimo bližnjico render, ki sprejme HTTP
     # zahtevo, ime predloge ter kontekst, ki je slovar, v katerem podamo vse
@@ -13,7 +13,7 @@ def index(request):
         'bleats': Bleat.objects.all(),
         'all_sheep': Sheep.objects.all()
     }
-    return render(request, 'index.html', context)
+    return render(request, 'homepage.html', context)
 
 
 def timeline(request, shortname):
